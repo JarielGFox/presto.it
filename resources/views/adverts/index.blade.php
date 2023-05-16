@@ -21,15 +21,37 @@
             </div>
             <div class="card_content-adv">
                 <div class="card_content-adv2">
-                <center><span class="card_title-adv mb-2">{{ $advert['title'] }}</span></center>
-                <center><span class="card_subtitle-adv">{{ $advert['price'] }}€</span></center>
                 <center>
-                <p class="card-text">{{__('adverts.categories')}} 
-                @if (Lang::locale()=='it'){{$advert->category['name']}}
-                @elseif (Lang::locale()=='en'){{$advert->category['name_en']}}
-                @elseif (Lang::locale()=='de'){{$advert->category['name_de']}}
-                @endif 
-                </p></center>
+                    <span class="card_title-adv mb-2">{{ $advert['title'] }}</span>
+                    <span class="
+                                                                    @if ($advert['typology'] === 1)
+                                                                        badge bg-primary bg-gradient rounded-pill mt-2
+                                                                    @elseif ($advert['typology'] === 2)
+                                                                        badge bg-danger bg-gradient rounded-pill 
+                                                                    @elseif ($advert['typology'] === 3)
+                                                                        badge bg-secondary bg-gradient rounded-pill
+                                                                    @endif
+                                                                ">
+                        @if ($advert['typology'] === 1)
+                        Nuovo
+                        @elseif ($advert['typology'] === 2)
+                        Usato
+                        @elseif ($advert['typology'] === 3)
+                        Altro
+                        @endif
+                    </span>
+                </center>
+
+                <center><span class="card_subtitle-adv">{{ $advert['price'] }}€</span></center>
+               
+                <center>
+                    <p class="card-text">{{__('adverts.categories')}} 
+                    @if (Lang::locale()=='it'){{$advert->category['name']}}
+                    @elseif (Lang::locale()=='en'){{$advert->category['name_en']}}
+                    @elseif (Lang::locale()=='de'){{$advert->category['name_de']}}
+                    @endif 
+                    </p>
+                </center>
                 <center><p class="card_description-adv ms-3 me-3">{{ Str::limit($advert['body'], 28) }}</p></center>
                 <center><a href="{{ route('adv-detail', ['id' => $advert['id']]) }}" class="btn advert-button">{{__('adverts.details')}}</a></center>
             </div>

@@ -21,6 +21,7 @@ class CreateAdvert extends Component
     public $title;
     public $body;
     public $price;
+    public $typology;
     public $category;
     public $message;
     public $validated;
@@ -98,6 +99,7 @@ class CreateAdvert extends Component
             'body' => $this->body,
             'price' => $this->price,
             'category_id' => $this->category,
+            'typology' => $this->typology
         ]);
 
         if (count($this->images)) {
@@ -109,7 +111,7 @@ class CreateAdvert extends Component
                 // runniamo job
 
                 RemoveFaces::withChain([
-                    new ResizeImage($newImage->path , 400, 350),
+                    new ResizeImage($newImage->path, 400, 350),
                     new GoogleVisionSafeSearch($newImage->id),
                     new GoogleVisionLabelImage($newImage->id)
                 ])->dispatch($newImage->id);

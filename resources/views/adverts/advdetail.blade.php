@@ -47,16 +47,35 @@
       <div class="col-12">
         <div class="card-body">
           <h3 class="card-title text-center my-2">{{ $advert['title'] }}</h3>
-          <p class="card-title text-center mt-2"><span class="text-danger">{{__('adverts.advDetcategories')}}</span>
+          <center><span class="
+                              @if ($advert['typology'] === 1)
+                                badge bg-primary bg-gradient rounded-pill fs-6 mt-3
+                              @elseif ($advert['typology'] === 2)
+                                badge bg-danger bg-gradient rounded-pill fs-6 mt-3
+                              @elseif ($advert['typology'] === 3)
+                                badge bg-secondary bg-gradient rounded-pill fs-6 mt-3
+                              @endif
+                          ">
+              @if ($advert['typology'] === 1)
+              Nuovo
+              @elseif ($advert['typology'] === 2)
+              Usato
+              @elseif ($advert['typology'] === 3)
+              Altro
+              @endif
+          </span></center>
+          <center><span class="card-title text-center mt-2"><span class="text-danger">{{__('adverts.advDetcategories')}}</span>
              @if (Lang::locale()=='it' ){{$advert->category['name']}}
                 @elseif (Lang::locale()=='en'){{$advert->category['name_en']}}
                 @elseif (Lang::locale()=='de'){{$advert->category['name_de']}}
                 @endif
-          </p>
+          </span></center>
           <p class="text-center border-end my-2"><span class="text-danger">{{__('adverts.advDescription')}}</span> {{
-            $advert['body'] }}</p>
+            $advert['body'] }}
+          </p>
           <p class="text-center border-end my-2"><span class="text-danger">{{__('adverts.advPrice')}}</span> {{
-            $advert['price'] }} €</p>
+            $advert['price'] }} €
+          </p>
         </div>
       </div>
     </div>

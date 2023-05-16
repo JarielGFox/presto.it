@@ -12,6 +12,8 @@ class AdvertController extends Controller
     public $title;
     public $body;
     public $price;
+    public $typology;
+
     /**
      * Display a listing of the resource.
      */
@@ -43,6 +45,7 @@ class AdvertController extends Controller
             'title' => $this->title,
             'body' => $this->body,
             'price' => $this->price,
+            'typology' => $this->typology
         ]);
         $advert->save();
     }

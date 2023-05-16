@@ -10,7 +10,7 @@ class Advert extends Model
 {
     use HasFactory, Searchable;
 
-    protected $fillable = ['title', 'body', 'price', 'category_id'];
+    protected $fillable = ['title', 'body', 'price', 'typology', 'category_id'];
 
     public function toSearchableArray()
     {
@@ -19,6 +19,7 @@ class Advert extends Model
             'id' => $this->id,
             'title' => $this->title,
             'body' => $this->body,
+            'typology' => $this->typology,
             'category' => $category,
         ];
         return $array;

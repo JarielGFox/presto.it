@@ -43,6 +43,15 @@
                         {{$message}}
                         @enderror
                     </div>
+
+                    <div class="col-6 mx-auto dropdown-container">
+                        <label for="typology">Condizione</label>
+                        <select wire:model.defer="typology" id="typology" class="form-check">
+                            <option value="1">Nuovo</option>
+                            <option value="2">Usato</option>
+                            <option value="3">Altro</option>
+                        </select>
+                    </div>
     
                     <div class="mb-3">
                         <label for="price">{{__('adverts.createPrice')}}</label>
