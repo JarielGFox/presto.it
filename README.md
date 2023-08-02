@@ -1,4 +1,4 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://i.postimg.cc/85BGsJ0m/Logo-Presto.png" alt="Presto Logo"></a></p>
+<p align="center"><a href="#" target="_blank"><img src="https://i.postimg.cc/85BGsJ0m/Logo-Presto.png" alt="Presto Logo"></a></p>
 
 # Presto.it
 
